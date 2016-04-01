@@ -15,12 +15,12 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loaders: ['ng-annotate!babel']
+        exclude: /(node_modules)/,
+        loaders: ['ng-annotate','babel']
       },
       {
         test: /\.html$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         loader: "raw"
       },
       {
