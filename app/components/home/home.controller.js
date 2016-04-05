@@ -1,16 +1,15 @@
 class HomeController {
-  constructor(homeService) {
+  constructor(q, homeService) {
+    this.q = q;
     this.random = homeService;
-    this.name = 'World';
+    this.title = 'World';
   }
 
   changeName() {
-    this.name = 'angular-tips';
-  }
-
-  randomName() {
-    this.name = this.random.getName();
+    this.title = 'angular-tips';
   }
 }
+
+HomeController.$inject = ['$q'];
 
 module.exports = HomeController;
