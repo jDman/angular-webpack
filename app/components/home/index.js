@@ -1,15 +1,16 @@
 const angular = require('angular')
     , uirouter = require('angular-ui-router');
 
-const routing = require('./home.route')
+const routing = require('../../routing')
     , HomeController = require('./home.controller')
-    , HomeService = require('./home.service')
-    , HomeDirective = require('./home.directive');
+    , randomNames = require('./home.service')
+    , homeDirective = require('./home.directive');
 
-const homeModule = angular.module('app.home', [uirouter.default])
-                     .config(routing)
-                     .controller('HomeController', HomeController)
-                     .service('homeService', HomeService)
-                     .directive('homeDirective', HomeDirective);
+const homeModule = angular.module('app.home',
+    [uirouter.default, randomNames, homeDirective
+  ])
+  .config(routing)
+  .controller('HomeController', HomeController)
+  .name;
 
-module.exports = homeModule.name;
+module.exports = homeModule;

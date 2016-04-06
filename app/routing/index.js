@@ -1,4 +1,4 @@
-const homeTemplate = require('../../templates/home.html')
+const homeTemplate = require('../templates/home.html')
 
 const routes = $stateProvider => {
   $stateProvider

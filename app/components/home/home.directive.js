@@ -1,17 +1,22 @@
-HomeController = require('./home.controller');
+const angular = require('angular');
+const HomeController = require('./home.controller');
+const directiveTemplate = require('../../templates/home-directive.html');
 
 class HomeDirective {
   constructor() {
-    this.restrict = 'EA';
+    this.scope = {
+      name: '@'
+    };
+    this.restrict = 'E';
     this.controller = HomeController;
+    this.template = directiveTemplate;
   }
 
-  link(scope, element, attr, ctr) {
-
-    console.log(ctr);
-    console.log(ctr.q);
-
+  link(scope, element, attrs, ctr) {
+    console.log(scope, attrs);
   }
 }
 
-module.exports = HomeDirective;
+module.exports = angular.module('home.directives', [])
+  .directive('homeDirective', HomeDirective)
+  .name;
