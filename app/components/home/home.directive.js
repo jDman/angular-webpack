@@ -13,7 +13,7 @@ class HomeDirective {
   }
 
   link(scope, element, attrs, ctr) {
-    console.log(scope, attrs);
+    console.log(scope);
   }
 }
 
