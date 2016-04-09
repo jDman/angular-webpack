@@ -18,9 +18,7 @@ module.exports = function karmaConfig (config) {
 
     files: [
       // Grab all files in the app folder that contain .spec.
-      'app/tests.webpack.js',
-      'app/*.html',
-      'app/*.html.ext',
+      'app/tests/tests.webpack.js',
       'app/**/*.html'
     ],
 
@@ -28,16 +26,13 @@ module.exports = function karmaConfig (config) {
       // Reference: http://webpack.github.io/docs/testing.html
       // Reference: https://github.com/webpack/karma-webpack
       // Convert files with webpack and load sourcemaps
-      'app/tests.webpack.js': ['webpack', 'sourcemap'],
+      'app/tests/tests.webpack.js': ['webpack', 'sourcemap'],
       'app/**/*.html': ['ng-html2js']
     },
 
     ngHtml2JsPreprocessor: {
       // strip this from the file path
-      stripPrefix: 'public/',
-      stripSuffix: '.ext',
-      // prepend this to the
-      prependPrefix: 'served/',
+      stripPrefix: 'app/',
 
       // - setting this option will create only a single module that contains templates
       //   from all the files, so you can load them all with module('foo')
@@ -45,7 +40,7 @@ module.exports = function karmaConfig (config) {
       //   if you'd like to generate modules dynamically
       //   htmlPath is a originalPath stripped and/or prepended
       //   with all provided suffixes and prefixes
-      moduleName: 'foo'
+      moduleName: 'templates'
     },
 
     browsers: [

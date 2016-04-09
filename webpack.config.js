@@ -23,8 +23,16 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
+        exclude: /(node_modules || tests)/,
+        loader: 'ng-annotate'
+      },
+      {
+        test: /\.js$/,
         exclude: /(node_modules)/,
-        loaders: ['ng-annotate','babel']
+        loader: 'babel',
+        query: {
+          presets: 'es2015'
+        }
       },
       {
         test: /\.html$/,
