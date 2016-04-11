@@ -17,7 +17,6 @@ module.exports = function karmaConfig (config) {
     ],
 
     files: [
-      // Grab all files in the app folder that contain .spec.
       'app/tests/tests.webpack.js',
       'app/**/*.html'
     ],

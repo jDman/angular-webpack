@@ -15,8 +15,12 @@ class HomeDirective {
   link(scope, element, attrs, ctr) {
     console.log(scope);
   }
+
+  static directiveFactory() {
+    return new HomeDirective();
+  }
 }
 
 module.exports = angular.module('home.directives', [])
-  .directive('homeDirective', HomeDirective)
+  .directive('homeDirective', HomeDirective.directiveFactory)
   .name;
