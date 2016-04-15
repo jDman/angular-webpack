@@ -41,6 +41,8 @@
   },
   "dependencies": {
     "angular": "^1.5.3",
-    "angular-ui-router": "^1.0.0-alpha.1"
+    "angular-ui-router": "^1.0.0-alpha.1",
+    "jquery": "^2.2.3",
+    "rx": "^4.1.0"
   }
 }

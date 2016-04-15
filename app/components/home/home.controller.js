@@ -1,6 +1,7 @@
 class HomeController {
-  constructor(q, randomNames) {
+  constructor(q, userModel, randomNames) {
     this.q = q;
+    this.users = userModel.users;
     this.random = randomNames;
     this.title = 'World';
   }
@@ -14,6 +15,6 @@ class HomeController {
   }
 }
 
-HomeController.$inject = ['$q', 'RandomNames'];
+HomeController.$inject = ['$q', 'UserModel', 'RandomNames'];
 
 module.exports = HomeController;
