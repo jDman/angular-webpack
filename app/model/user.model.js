@@ -10,19 +10,21 @@ class UserModel {
     this.users = this.getUsers();
   }
 
-  getUsers() {
-    let requestStream = Observable.just(
-      this.url
+  generateRandomUsers(users) {
+    return this.users.map(response =>
+      response[Math.floor(Math.random() * response.length)]
     );
+  }
+
+  getUsers() {
+    let requestStream = Observable.just(this.url);
 
     let responseStream = requestStream
      .flatMap(
        requestUrl => Observable.fromPromise(jq.getJSON(requestUrl))
      );
 
-    responseStream.subscribe(response => {
-     console.log(response);
-    });
+     return responseStream;
   }
 }
 

@@ -1,7 +1,7 @@
 class HomeController {
   constructor(q, userModel, randomNames) {
     this.q = q;
-    this.users = userModel.users;
+    this.model = userModel;
     this.random = randomNames;
     this.title = 'World';
   }

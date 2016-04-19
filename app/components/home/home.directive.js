@@ -12,8 +12,23 @@ class HomeDirective {
     this.template = directiveTemplate;
   }
 
-  link(scope, element, attrs, ctr) {
-    console.log(scope);
+  link(scope, el, attrs, ctrl) {
+    function usersList() {
+      let randomUser = ctrl.model
+        .generateRandomUsers(ctrl.model.users);
+
+      let stream = randomUser.subscribe(user => {
+        renderUsers(user, el)
+      });
+    }
+
+    function renderUsers(userData, selector) {
+      let titleNameEl = selector[0].querySelector('.testTitle');
+
+      titleNameEl.innerHTML = userData.login;
+    }
+
+    usersList();
   }
 
   static directiveFactory() {

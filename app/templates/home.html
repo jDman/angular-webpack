@@ -1,7 +1,10 @@
 <div class="jumbotron">
   <h1>{{home.title}}</h1>
 
-  <home-directive name="js"><home-directive>
+  <div user in home.users>
+    <home-directive name={{user.login}}><home-directive>
+  </div>
+
 
 </div>
 
